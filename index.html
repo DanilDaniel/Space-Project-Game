@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Open Space</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+        function checkPassword() {
+            document.getElementById('pass-btn').addEventListener("click", checkPassword);
+            const password1 = "TrustNo1";
+            if (document.getElementById('pass-input').value === password1){
+                [... document.getElementsByClassName('check-buttons')[0]
+                    .getElementsByTagName('input')]
+                    .forEach(el => el.disabled = false);
+                [... document.getElementsByClassName('levers')[0]
+                    .getElementsByTagName('input')]
+                    .forEach(el => el.disabled = false);
+                document.getElementById('pass-input').disabled = true;
+                document.getElementById('pass-btn').disabled = true;
+                document.getElementById('launch-btn').disabled = true;
+            }
+
+        }
+
+            function check() {
+                const checkboxCheck = document.querySelectorAll('.check-buttons input');
+                const rangeCheck = document.querySelectorAll('.levers input');
+                let checkedCount = 0;
+                for(const i of checkboxCheck) {
+                    if(i.checked) {
+                        checkedCount++;
+                    }
+                }
+                for(const i of rangeCheck) {
+                    if(i.value === "100") {
+                        checkedCount++;
+                    }
+                }
+                if(checkedCount === 11){
+                    document.getElementById('launch-btn').disabled = false;
+                }
+                else document.getElementById('launch-btn').disabled = true;
+            }
+
+
+        function launch () {
+               // using @keyframes
+                document.querySelector(".rocket").className = "fly-rocket";
+
+                //!using animate function below!
+                // const newRocket = [
+                //     {
+                //         top: '30px',
+                //         position: 'absolute',
+                //         left: '420px',
+                //         transform: 'rotate(20deg)'
+                //     },
+                //     {
+                //         top: '-700px',
+                //         left: '600px',
+                //         transform: 'rotate(20deg)',
+                //
+                //     }];
+                //
+                // const newRocketTiming = {
+                //     duration: 3000,
+                //     fill: "forwards"
+                //
+                // }
+                // const rocketLaunch = document.querySelector(".rocket");
+                // rocketLaunch.animate(newRocket, newRocketTiming);
+        }
+    </script>
+</head>
+<body onload="checkPassword()">
+    <div class="space">
+        <div class="planet-area">
+       <img class="planet" src="https://stepik.org/media/attachments/lesson/452681/mars.png">
+       <img class="rocket" src="https://stepik.org/media/attachments/lesson/452681/rocket.png">
+        </div>
+        <div class="control-panel">
+            <div class="control-panel__inner">
+            <input id="pass-input" type="password" placeholder="Enter password to unlock"/>
+            <input id="pass-btn" type="button" value="Ok"/>
+            <div class="check-buttons">
+                <input type="checkbox" onchange="check()" disabled = true>
+                <input type="checkbox" onchange="check()" disabled = true>
+                <input type="checkbox" onchange="check()" disabled = true>
+                <input type="checkbox" onchange="check()" disabled = true>
+                <input type="checkbox" onchange="check()" disabled = true>
+                <input type="checkbox" onchange="check()" disabled = true>
+            </div>
+            <div class="levers">
+                <input type="range" onchange="check()" disabled = true>
+                <input type="range" onchange="check()" disabled = true>
+                <input type="range" onchange="check()" disabled = true>
+                <input type="range" onchange="check()" disabled = true>
+                <input type="range" onchange="check()" disabled = true>
+            </div>
+            <input id="launch-btn" type="button" onclick="launch()" value="Launch" disabled = true>
+            </div>
+        </div>
+        <div id="refresh-btn">
+            <button onclick="alert('TrustNo1')">Get Password</button>
+            <button onClick="window.location.reload();">Refresh Page</button>
+        </div>
+    </div>
+</body>
+</html>

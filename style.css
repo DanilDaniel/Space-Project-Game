@@ -1,0 +1,155 @@
+body{
+    margin: 0;
+}
+.space {
+    position: relative;
+    background-image: url("https://stepik.org/media/attachments/lesson/452681/space.png");
+    display: flex;
+
+}
+.planet-area{
+    position: relative;
+}
+
+.planet{
+    position: relative;
+    bottom: -7px;
+}
+
+.rocket{
+    position: absolute;
+    left: 420px;
+    transform: rotate(20deg);
+    top: 30px;
+}
+
+.control-panel__inner{
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background: dimgray;
+    min-width: 35vw;
+    max-width: 35vw;
+    min-height: 25vh;
+    max-height: 25vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.control-panel{
+    right: 20px;
+    background: repeating-linear-gradient(
+            45deg,
+            black,
+            black 10px,
+            yellow 10px,
+            yellow 20px
+    );
+    min-width: 37vw;
+    max-width: 47vw;
+    min-height: 29vh;
+    max-height: 39vh;
+    position: relative;
+    top: 320px;
+}
+
+.levers{
+    margin: 7px;
+    display: flex;
+    flex-direction: row;
+    top: auto;
+}
+
+.levers input{
+    transform: rotate(-90deg);
+    width: 70px;
+    height: 20px;
+    position: relative;
+    top: -10px;
+}
+.check-buttons {
+    position: relative;
+    top: -30px;
+    margin: 7px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    min-width: 360px;
+    max-width: 400px;
+}
+
+.control-panel__inner input[type=password]{
+    margin-bottom: 10px;
+    position: relative;
+    top: 20px;
+    left: -50px;
+    background-color: dimgray;
+    border-radius: 25px;
+    border-color: yellow;
+    font-weight: bold;
+    color: gray;
+}
+.control-panel__inner input[value=Ok]{
+    margin: 7px;
+    background-color: yellow;
+    border-radius: 20px;
+    font-weight: bold;
+    position: relative;
+    top: -25px;
+    left: 110px;
+    color: dimgray;
+}
+.control-panel__inner input[value=Launch]{
+    margin-top: 7px;
+    background: red;
+    height: 50px;
+    width: 70px;
+    border-radius: 50%;
+    border-color: white;
+    font-size: 16px;
+    color: white;
+}
+
+#refresh-btn{
+    position: absolute;
+    left: 5%;
+    bottom: 30%;
+}
+
+#refresh-btn button{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(167, 59, 5);
+    color: black;
+    border-radius: 10px;
+    border-color: yellow;
+}
+.fly-rocket{
+    animation-name: flying-rocket;
+    animation-duration: 3000ms;
+    animation-fill-mode: forwards;
+    position: absolute;
+    top:  -600px;
+    left: 630px;
+    transform: rotate(20deg);
+}
+
+@keyframes flying-rocket {
+    0%{
+        top: 30px;
+        position: absolute;
+        left: 420px;
+        transform: rotate(20deg);
+    }
+    100%{
+        position: absolute;
+        top:  -600px;
+        left: 630px;
+        transform: rotate(20deg);
+    }
+}
